@@ -17,16 +17,15 @@ Installation
 
 The recommended installation procedure uses virtualenv and buildout.
 
-- If you do not already have virtualenv you will need to install it using ``easy_install virtualenv``.
-- Create a new virtualenv 'foo' with ``virtualenv foo``.
-- Activate the virtualenv: ``cd foo; source bin/activate``
-- Clone the git repo: ``git clone git://github.com/sbc/django-uploadify-s3-example.git example``
-- Bootstrap the buildout environment: ``python bootstrap.py``
-- Run the build: ``cd example; bin/buildout``. This will download and install (to the virtualenv) all dependencies including Django, DUS3 and Uploadify.
-- Sync the db: ``bin/django syncdb``
-- Edit ``src/settings/common.py``, and add your AWS information
-- Run the dev server: ``bin/django runserver``
-
+#. If you do not already have virtualenv you will need to install it using ``easy_install virtualenv``.
+#. Create a new virtualenv 'foo' with ``virtualenv foo``.
+#. Activate the virtualenv: ``cd foo; source bin/activate``
+#. Clone the git repo: ``git clone git://github.com/sbc/django-uploadify-s3-example.git example``
+#. Bootstrap the buildout environment: ``python bootstrap.py``
+#. Run the build: ``cd example; bin/buildout``. This will download and install (to the virtualenv) all dependencies including Django, DUS3 and Uploadify.
+#. Sync the db: ``bin/django syncdb``
+#. Edit ``src/settings/common.py``, and add your AWS information
+#. Run the dev server: ``bin/django runserver``
 
 Usage
 -----
