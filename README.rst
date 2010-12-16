@@ -17,8 +17,7 @@ Installation
 
 The recommended installation procedure uses virtualenv and buildout.
 
-- If you do not already have virtualenv you will need to install it using 
-``easy_install virtualenv``.
+- If you do not already have virtualenv you will need to install it using ``easy_install virtualenv``.
 - Create a new virtualenv 'foo' with ``virtualenv foo``.
 - Activate the virtualenv: ``cd foo; source bin/activate``
 - Clone the git repo: ``git clone git://github.com/sbc/django-uploadify-s3-example.git example``
