@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Examples - My Example Objects{% endblock %}
+
+{% block content %}
+    {% if object_list %}
+        <h1>You have {{ object_list.count }} example{{ object_list.count|pluralize }} posted</h1>
+        <ul class="examples">
+            {% for object in object_list %}
+            <li>
+                <h3>
+                    <a href="{% url examples_example_detail object.id %}">{{ object }}</a>
+                    {% if object.has_file %}
+                        (Has File)
+                    {% endif %}
+                </h3>
+                <div class="description">
+                    {{ object.description }}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h1>You have no examples</h1>
+    {% endif %}
+    <p><a href="{% url examples_example_new %}">Create new example</a></p>
+{% endblock %}

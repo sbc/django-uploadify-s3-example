@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Examples - {{ object.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <h2>{{ object.description}}</h2>
+        
+    {% if object.has_file %}
+        <table class="stylized">
+            <tr><th colspan="2">File Information</th></tr>
+            <tr><td>File name</td><td>{{ object.file_name }}</td></tr>
+            <tr><td>File location</td><td>{{ object.file_url }}</td></tr>
+            <tr><td>File size</td><td>{{ object.file_size }}</td></tr>
+            <tr><td>Uploaded</td><td><time class="timeago" datetime="{{ object.file_uploaded }}">{{ object.file_uploaded }}</time></td></tr>
+        </table>
+    {% else %}
+        <p>No files uploaded. Please <a href="{% url examples_example_upload object.id %}">upload something</a>.
+    {% endif %}
+    
+    <h3>Actions</h3>
+    <div class="example_actions">
+        <ul>
+            <li>
+                <a class="btn big" href="{% url examples_example_upload object.id %}">{% if object.has_file %}Replace{% else %}Upload{% endif %} File</a>
+            </li>
+            <li>
+                <a class="btn big" href="{% url examples_example_edit object.id %}">Edit</a>
+            </li>
+            <li>
+                <a class="btn big" href="{% url examples_example_delete object.id %}">Delete</a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="{% url examples_example_list %}">Back to list</a>
+
+{% endblock %}

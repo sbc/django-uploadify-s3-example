@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Examples - Confirm Delete{% endblock %}
+
+{% block content %}
+    <h1>Really delete &ldquo;{{ object }}&rdquo;?</h1>
+    <h2>This action cannot be undone.</h2>
+
+    <form action="{% url examples_example_delete object.id %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+{% endblock %}

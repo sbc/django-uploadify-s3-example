@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Examples - New Example{% endblock %}
+
+{% block content %}
+    <h1>Post a new Example<h1>
+    <h3>Fill out the form below to post your new example</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>
+            <label for="id_name" class="required">Name:</label><br>
+            {{ form.name }}
+        </p>
+        <p>
+            <label for="id_description">Description:</label><br>
+            {{ form.description }}
+        </p>
+        <input type="submit" name="post" value="Continue" class="btn big"> &nbsp; or &nbsp; <a href="{% url examples_example_list %}">Cancel</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{#
+ # There are a handful of things to note in this template:
+ #   1. We load the django-uploadify-s3 template tags
+ #   2. We include the uploadify javascript and CSS using the uploadify_head tag
+ #   3. We insert the uploadify upload widget using the uploadify_widget tag
+ #   4. We add an upload button with the uploadify_upload tag
+ #   5. A hidden field with id next whose value is our OnComplete callback URL
+ #
+ # Note that Uploadify requires jQuery, and django-uploadify-s3 does not 
+ # automatically include it. (To avoid conflicts.)
+ #
+ #}
+ 
+{% block title %}Examples - {{ example.name }} - Upload{% endblock %}
+
+{% load uploadify_tags %}
+
+{% block extra_head %}
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/media/js/uploadify_event_handlers.js"></script>
+    {% uploadify_head %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ example.name }}</h1>
+    <h2>{{ example.description}}</h2>
+
+    <h3>Upload your example file</h3>
+    <p>&nbsp;</p>
+    <p>{% uploadify_widget uploadify_options %}</p>
+    <p>{% uploadify_upload "btn big" %} &nbsp; or &nbsp; <a href="{% url examples_example_detail example.id %}">Cancel</a></p>
+    <input id="next" type="hidden" name="next" value="{% url examples_example_upload_done example.id %}">
+
+    <p><a href="{% url examples_example_detail example.id %}">Back to list</a></p>
+{% endblock %}
