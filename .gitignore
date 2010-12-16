@@ -1,0 +1,15 @@
+*~
+.DS_Store
+*.orig
+*.pyc
+*.pyo
+*.rej
+.installed.cfg
+bin/*
+develop-eggs
+downloads
+eggs
+log
+parts
+project/media/uploads
+tmp
